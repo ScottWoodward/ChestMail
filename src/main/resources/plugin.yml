@@ -1,0 +1,60 @@
+name: ChestMail
+main: com.scottwoodward.chestmail.ChestMail
+version: 2.0.0
+softdepend: [Vault]
+
+
+commands:
+   setmailbox:
+      description: Designates the selected chest as a mailbox
+      usage: /setmailbox <mailbox name>
+      permission: chestmail.command.setmailbox
+      permission-message: You do not have permission to use /chestmail:setmailbox
+      aliases: [cmsetmailbox]
+   sendmail:
+      description: Sends the item you are holding to the specified mailbox
+      usage: /sendmail <mailbox name>
+      permission: chestmail.command.sendmail
+      permission-message: You do not have permission to use /chestmail:sendmail
+      aliases: [cmsendmail]
+   reload:
+     description: Reloads ChestMail's configuration settings from disk.
+     usage: /reload
+     permission: chestmail.command.reload
+     permission-message: You do not have permission to use /chestmail:reload
+     aliases: [cmreload]
+   removemailbox:
+     description: Removes a specific mailbox
+     usage: /removemailbox <mailbox name>
+     permission: chestmail.command.removemailbox
+     permission-message: You do not have permission to use /chestmail:removemailbox
+     aliases: [cmremovemailbox]
+     
+     
+permissions:
+   chestmail.command.*:
+     children:
+       chestmail.command.setmailbox: true
+       chestmail.command.sendmail: true
+       chestmail.command.reload: true
+       chestmail.command.removemailbox: true
+   chestmail.command.player:
+     children:
+       chestmail.command.setmailbox: true
+       chestmail.command.sendmail: true
+       chestmail.command.removemailbox: true
+   chestmail.command.admin:
+     children:
+       chestmail.command.reload: true
+       chestmail.flag.removeanymailbox: true
+   chestmail.command.setmailbox:
+     default: true
+   chestmail.command.sendmail:
+     default: true
+   chestmail.command.removemailbox:
+     default: true
+   chestmail.command.reload:
+     default: op
+   chestmail.flag.removeanymailbox:
+     default: op
+      

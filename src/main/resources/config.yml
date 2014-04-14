@@ -1,0 +1,12 @@
+#Whether or not economy should be used with ChestMail (Requires Vault)
+EconomyEnabled: true
+#Cost to set a mailbox
+CostToSetMailbox: 10
+
+#The following two settings are cumulative. If FlatCostToSendMail = 10, and CostPerITemSend: = 1
+#Then it would cost 12 to send a stack containing 2 items.
+
+#Cost to sent any number of items 
+FlatCostToSendMail: 1
+#Cost per item to send
+CostPerItemSent: 0.01
